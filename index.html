@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprenda a criar imagens impossíveis que viralizam no WhatsApp. +60 prompts prontos. Acesso imediato.">
+  <title>Prompts que Viralizam — Futuristas.AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== ELEMENTOS GLOBAIS ===== -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress-bar"></div>
+<div class="grid-bg"></div>
+<div id="mouse-glow"></div>
+<canvas id="confetti-canvas"></canvas>
+
+<!-- ===== LOADER ===== -->
+<div id="loader">
+  <div class="loader-logo">FUTURISTAS.AI</div>
+  <div class="loader-bar-wrap">
+    <div class="loader-bar" id="loader-bar"></div>
+  </div>
+  <div class="loader-pct" id="loader-pct">0%</div>
+</div>
+
+<!-- ===== SUCCESS SCREEN ===== -->
+<div id="success-screen">
+  <div class="success-icon">🚀</div>
+  <h2 class="success-title">Acesso Liberado!</h2>
+  <p class="success-sub">Você vai receber o acesso por e-mail em instantes. Bem-vindo ao lado dos que sabem fazer.</p>
+</div>
+
+<!-- ===== LIVE NOTIFICATION ===== -->
+<div id="live-notif">
+  <div class="notif-avatar" id="notif-avatar">MF</div>
+  <div class="notif-content">
+    <div class="notif-name" id="notif-name">M. Ferreira acabou de comprar</div>
+    <div class="notif-action">Prompts que Viralizam</div>
+  </div>
+  <div class="notif-time" id="notif-city">SP</div>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div id="checkout-modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
+    <h2 class="modal-title">Garantir Acesso</h2>
+    <p class="modal-subtitle">Oferta de lançamento · Vagas limitadas</p>
+
+    <div class="modal-price">R$37</div>
+    <div class="modal-from">De R$197 — você economiza R$160</div>
+
+    <div class="payment-tabs">
+      <div class="pay-tab active" data-pay="pix">PIX</div>
+      <div class="pay-tab" data-pay="cartao">CARTÃO</div>
+      <div class="pay-tab" data-pay="boleto">BOLETO</div>
+    </div>
+
+    <div id="pix-info" class="pix-info">
+      💚 PIX à vista — R$37,00 · Acesso imediato após confirmação
+    </div>
+    <div id="card-info" style="display:none"></div>
+    <div id="boleto-info" class="pix-info" style="display:none; background: rgba(245,200,66,0.06); border-color: rgba(245,200,66,0.2); color: var(--gold);">
+      🔸 Boleto — R$37,00 · Prazo de 3 dias úteis
+    </div>
+    <div id="installment-info" class="installment-info" style="display:none"></div>
+
+    <form id="checkout-form">
+      <div class="form-group">
+        <label class="form-label" for="nome">Seu nome</label>
+        <input class="form-input" type="text" id="nome" placeholder="Como você quer ser chamado" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">E-mail</label>
+        <input class="form-input" type="email" id="email" placeholder="seu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="whatsapp">WhatsApp</label>
+        <input class="form-input" type="tel" id="whatsapp" placeholder="(11) 99999-9999" required>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top: 8px;">
+        GARANTIR MEU ACESSO AGORA →
+      </button>
+    </form>
+
+    <div class="guarantee-badge" style="margin-top: 20px;">
+      <span class="guarantee-icon">🛡️</span>
+      <div class="guarantee-text">
+        <strong>Garantia de 7 dias.</strong> Se não gostar por qualquer motivo, devolvemos 100% — sem perguntas.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Oferta de Lançamento — Preço Sobe em Breve</span>
+    <span>Vagas Fundadoras Disponíveis</span>
+    <span>Acesso Imediato Após Pagamento</span>
+    <span>Garantia de 7 Dias Sem Perguntas</span>
+    <span>Mais de 2.400 Imagens Geradas Essa Semana</span>
+    <span>Oferta de Lançamento — Preço Sobe em Breve</span>
+    <span>Vagas Fundadoras Disponíveis</span>
+    <span>Acesso Imediato Após Pagamento</span>
+    <span>Garantia de 7 Dias Sem Perguntas</span>
+    <span>Mais de 2.400 Imagens Geradas Essa Semana</span>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">FUTURISTAS.AI</a>
+  <a href="#oferta" class="nav-cta magnetic" data-checkout>GARANTIR R$37</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero section">
+  <div class="blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="container" style="position:relative; z-index:2;">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Futuristas.AI · Lançamento Exclusivo
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line1">A habilidade mais<br>comentada do</span><br>
+      <span class="highlight">grupo do zap</span>
+    </h1>
+
+    <p class="hero-sub">
+      Você abre o WhatsApp de manhã e tá lá — alguém com uma imagem absurdamente incrível
+      dele mesmo numa situação impossível. Todo mundo manda mensagem. Ninguém sabe como fez.<br>
+      <strong style="color: var(--text);">Agora você vai saber.</strong>
+    </p>
+
+    <div class="hero-cta-group">
+      <button class="btn-primary magnetic" data-checkout>
+        QUERO APRENDER AGORA
+        <span class="btn-arrow">→</span>
+      </button>
+      <div class="hero-trust">
+        <span>Acesso imediato</span>
+        <span>Garantia de 7 dias</span>
+        <span>Sem habilidade técnica</span>
+      </div>
+    </div>
+
+    <div class="floating-cards">
+      <div class="float-card">
+        <span class="emoji">💣</span>
+        <span>Herói saindo da explosão</span>
+      </div>
+      <div class="float-card">
+        <span class="emoji">⚽</span>
+        <span>Gol da virada na várzea</span>
+      </div>
+      <div class="float-card">
+        <span class="emoji">🏰</span>
+        <span>Reunião com armadura medieval</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats-section section reveal">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number" data-count="2400" data-suffix="+" id="c1">0</div>
+      <div class="stat-label">Imagens geradas esta semana</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number gold-num" style="font-size: clamp(24px,4vw,42px);">10s</div>
+      <div class="stat-label">Tempo médio de geração</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-count="60" data-suffix="+" id="c2">0</div>
+      <div class="stat-label">Prompts prontos incluídos</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== O QUE É ===== -->
+<section class="what-section section">
+  <div class="reveal">
+    <span class="section-label">// o produto</span>
+    <h2 class="section-title">Você vai criar imagens que<br><span class="accent">ninguém acredita que são reais</span></h2>
+    <p class="what-desc">
+      Com os prompts certos, você coloca qualquer pessoa em qualquer situação — e a imagem sai fotorrealista,
+      engraçada, e pronta pra mandar no grupo. Sem Photoshop. Sem designer.
+      Sem habilidade técnica. Só você, o celular e o prompt.
+    </p>
+  </div>
+
+  <!-- TERMINAL -->
+  <div class="terminal-wrap reveal reveal-delay-1">
+    <div class="terminal-header">
+      <div class="term-dot red"></div>
+      <div class="term-dot yellow"></div>
+      <div class="term-dot green"></div>
+      <span class="term-title">prompt_generator.ai — ao vivo</span>
+    </div>
+    <div class="terminal-body">
+      <div class="term-line">
+        <span class="term-prompt">→ PROMPT:</span>
+      </div>
+      <div class="term-line">
+        <span class="term-text" id="term-text"></span><span class="term-cursor"></span>
+      </div>
+      <div class="term-reaction" id="term-reaction" style="opacity:0; transform: translateY(8px);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== O DINHEIRO ===== -->
+<section class="money-section section">
+  <div class="container reveal">
+    <span class="section-label">// renda extra</span>
+    <h2 class="section-title">Ok. Mas e o <span class="accent">dinheiro?</span></h2>
+    <p class="what-desc" style="max-width: 560px; margin: 24px auto 0; font-weight: 300;">
+      Quando o grupo descobre que você sabe fazer isso, o que acontece é sempre o mesmo: <em>"Faz um pra mim!"</em>
+      — e aí você cobra. Simples assim.
+    </p>
+  </div>
+
+  <div class="money-grid">
+    <div class="money-card reveal reveal-delay-1">
+      <span class="money-icon">💰</span>
+      <h3>Investimento zero</h3>
+      <p>Além desse produto, você não precisa de mais nada. Sem assinatura, sem software caro.</p>
+    </div>
+    <div class="money-card reveal reveal-delay-2">
+      <span class="money-icon">📱</span>
+      <h3>Só pelo celular</h3>
+      <p>No ônibus, esperando fila, em qualquer lugar. Cada imagem leva menos de 2 minutos do pedido à entrega.</p>
+    </div>
+    <div class="money-card reveal reveal-delay-1">
+      <span class="money-icon">💳</span>
+      <h3>Cobra antes de entregar</h3>
+      <p>O cliente paga na frente. Não tem estoque, não tem frete, não tem risco nenhum.</p>
+    </div>
+    <div class="money-card reveal reveal-delay-2">
+      <span class="money-icon">📈</span>
+      <h3>R$50 a R$200/semana</h3>
+      <p>Tem gente ganhando isso fazendo imagens pra amigos, colegas de trabalho e grupos de futebol.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENTO GRID (PRODUTO) ===== -->
+<section class="bento-section section">
+  <div class="reveal">
+    <span class="section-label">// área de membros</span>
+    <h2 class="section-title">O que você recebe <span class="accent">agora</span></h2>
+    <p style="color: var(--text-muted); max-width: 520px; margin: 20px auto 0; font-weight: 300; font-size: 16px;">
+      Não é curso cheio de aula teórica. É coleção de prompts prontos organizados por tema.<br>
+      <strong style="color: var(--neon); font-size: 13px; font-family: 'JetBrains Mono', monospace;">↗ PASSE O MOUSE PRA VER O PROMPT</strong>
+    </p>
+  </div>
+
+  <div class="bento-grid">
+    <div class="bento-card wide reveal reveal-delay-1">
+      <div>
+        <span class="bento-tag">⚽ Pacote Futebol</span>
+        <h3>Herói da Várzea</h3>
+        <p>Gol da virada, torcida, confete. Ele vai virar meme do grupo por semanas.</p>
+      </div>
+      <div class="bento-count">10+</div>
+      <div class="bento-reveal">
+        <div class="bento-reveal-text">
+          "Foto realista de [nome] sendo carregado nos ombros<br>
+          pela torcida após fazer o gol da virada na várzea,<br>
+          confete caindo, expressão de herói mundial."
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card reveal reveal-delay-2">
+      <div>
+        <span class="bento-tag">💼 Pacote Trabalho</span>
+        <h3>Reunião Absurda</h3>
+        <p>Cenas impossíveis no ambiente corporativo. Ninguém resiste.</p>
+      </div>
+      <div class="bento-count">10+</div>
+      <div class="bento-reveal">
+        <div class="bento-reveal-text">
+          "[nome] em reunião séria,<br>vestindo armadura medieval.<br>Os colegas não acham estranho."
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card reveal reveal-delay-1">
+      <div>
+        <span class="bento-tag">💣 Pacote Ação</span>
+        <h3>Herói Hollywoodiano</h3>
+        <p>Explosões, câmera lenta, marmita na mão. Puro cinema.</p>
+      </div>
+      <div class="bento-count">10+</div>
+      <div class="bento-reveal">
+        <div class="bento-reveal-text">
+          "[nome] saindo em câmera lenta<br>de explosão nuclear, segurando<br>marmita e refrigerante 2L. Golden hour."
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card reveal reveal-delay-2">
+      <div>
+        <span class="bento-tag">🎉 Pacote Festa</span>
+        <h3>Estrela da Noite</h3>
+        <p>Aniversário, balada, confraternização — situações épicas.</p>
+      </div>
+      <div class="bento-count">10+</div>
+      <div class="bento-reveal">
+        <div class="bento-reveal-text">
+          "[nome] entrando no salão como<br>estrela de Hollywood, holofotes,<br>paparazzi, tapete vermelho."
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card reveal reveal-delay-1">
+      <div>
+        <span class="bento-tag">👨‍👩‍👧 Família</span>
+        <h3>Momentos Épicos</h3>
+        <p>Situações impossíveis com quem você ama. Memórias virais.</p>
+      </div>
+      <div class="bento-count">10+</div>
+      <div class="bento-reveal">
+        <div class="bento-reveal-text">
+          "[família] posando em frente<br>a uma mansão na Toscana,<br>sunset dourado, editorial de luxo."
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card reveal reveal-delay-2">
+      <div>
+        <span class="bento-tag">☕ Cotidiano</span>
+        <h3>Dia a Dia Absurdo</h3>
+        <p>As cenas mais simples, transformadas em algo extraordinário.</p>
+      </div>
+      <div class="bento-count">10+</div>
+      <div class="bento-reveal">
+        <div class="bento-reveal-text">
+          "[nome] tomando café da manhã<br>em gravidade zero, tudo flutuando,<br>expressão completamente normal."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTOS ===== -->
+<section class="testimonials-section section">
+  <div class="reveal">
+    <span class="section-label">// resultados reais</span>
+    <h2 class="section-title">Quem entrou tá <span class="accent">amando</span></h2>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Mandei o primeiro meme no grupo do trabalho numa sexta e até segunda ainda tinham pessoas me mandando mensagem. Já cobrei 3 pessoas R$30 cada semana passada."</p>
+      <div class="testimonial-author">Marcos F.</div>
+      <div class="testimonial-city">São Paulo, SP</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Uso pra fazer conteúdo pra páginas de humor. Em uma tarde gero material pra semana inteira. Tô economizando R$400 por mês que pagava pra designer."</p>
+      <div class="testimonial-author">Juliana C.</div>
+      <div class="testimonial-city">Rio de Janeiro, RJ</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Achei que ia ser difícil mas é ridiculamente simples. Copia o prompt, coloca o nome, gera. Minha filha de 15 anos usa mais que eu agora kkk"</p>
+      <div class="testimonial-author">Roberto S.</div>
+      <div class="testimonial-city">Belo Horizonte, MG</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE STACK ===== -->
+<section class="value-section section">
+  <div class="reveal">
+    <span class="section-label">// o que você leva</span>
+    <h2 class="section-title">Tudo isso por <span class="accent">R$37</span></h2>
+  </div>
+
+  <div class="value-list reveal reveal-delay-1">
+    <div class="value-item">
+      <span class="value-name"><span class="check">✓</span>+60 prompts prontos por tema</span>
+      <span class="value-price">R$97</span>
+    </div>
+    <div class="value-item">
+      <span class="value-name"><span class="check">✓</span>6 pacotes temáticos completos</span>
+      <span class="value-price">R$47</span>
+    </div>
+    <div class="value-item">
+      <span class="value-name"><span class="check">✓</span>Guia de personalização</span>
+      <span class="value-price">R$27</span>
+    </div>
+    <div class="value-item">
+      <span class="value-name"><span class="check">✓</span>Script de vendas pronto</span>
+      <span class="value-price">R$37</span>
+    </div>
+    <div class="value-item">
+      <span class="value-name"><span class="check">✓</span>Comunidade exclusiva no WhatsApp</span>
+      <span class="value-price">R$47</span>
+    </div>
+    <div class="value-item">
+      <span class="value-name"><span class="check">✓</span>Atualizações vitalícias</span>
+      <span class="value-price">R$97</span>
+    </div>
+  </div>
+
+  <div class="value-total reveal reveal-delay-2">
+    <span class="value-total-label">Valor total</span>
+    <span class="value-total-price">R$352</span>
+  </div>
+</section>
+
+<!-- ===== CHECKOUT / OFERTA ===== -->
+<section class="checkout-section section" id="oferta">
+  <div class="reveal">
+    <span class="section-label">// oferta de lançamento</span>
+    <h2 class="section-title" style="margin-bottom: 48px;">Acesso completo<br><span class="accent">uma vez só</span></h2>
+  </div>
+
+  <div class="checkout-card reveal reveal-delay-1">
+    <div class="checkout-badge">⚡ VAGAS FUNDADORAS · PREÇO SOBE EM BREVE</div>
+
+    <div class="price-from">De R$197</div>
+    <div class="price-main">
+      <span class="price-prefix">R$</span>37
+    </div>
+    <div class="price-installment">ou <strong>2x de R$21,53</strong> no cartão com juros</div>
+
+    <div class="checkout-includes">
+      <div class="checkout-item"><span class="ci-icon">✓</span>+60 prompts prontos organizados</div>
+      <div class="checkout-item"><span class="ci-icon">✓</span>6 pacotes — Futebol, Trabalho, Ação, Festa, Família, Cotidiano</div>
+      <div class="checkout-item"><span class="ci-icon">✓</span>Guia de personalização de prompts</div>
+      <div class="checkout-item"><span class="ci-icon">✓</span>Script de vendas pronto pra usar</div>
+      <div class="checkout-item"><span class="ci-icon">✓</span>Comunidade exclusiva no WhatsApp</div>
+      <div class="checkout-item"><span class="ci-icon">✓</span>Atualizações vitalícias incluídas</div>
+    </div>
+
+    <button class="btn-checkout magnetic" data-checkout>
+      QUERO MEU ACESSO AGORA →
+    </button>
+
+    <div class="guarantee-badge">
+      <span class="guarantee-icon">🛡️</span>
+      <div class="guarantee-text">
+        <strong>Garantia de 7 dias.</strong> Se não gostar por qualquer motivo, é só mandar um e-mail. Devolvemos 100% do valor, sem perguntas.
+      </div>
+    </div>
+
+    <div class="payment-icons">
+      <span class="pay-badge">PIX</span>
+      <span class="pay-badge">CARTÃO</span>
+      <span class="pay-badge">BOLETO</span>
+      <span class="pay-badge">ACESSO IMEDIATO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section section">
+  <div class="reveal" style="text-align: center; margin-bottom: 48px;">
+    <span class="section-label">// dúvidas frequentes</span>
+    <h2 class="section-title">Perguntas e <span class="accent">respostas</span></h2>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-question">
+      Precisa ter habilidade técnica?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Zero. Se você consegue copiar um texto e colar no WhatsApp, você consegue usar os prompts. Toda instrução vem mastigada dentro do produto.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-question">
+      Funciona pelo celular?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        100%. A ferramenta de IA que você vai usar roda direto no navegador do celular. Você pode gerar imagens no ônibus, na fila, em qualquer lugar.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-question">
+      Precisa pagar mensalidade pra usar?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Não. A ferramenta de IA que ensinamos tem um plano gratuito que cobre totalmente o uso básico. Você paga apenas o valor do produto aqui — uma vez só.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-question">
+      Em quanto tempo recebo o acesso?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Imediatamente após a confirmação do pagamento. No PIX é instantâneo. No cartão, em até alguns minutos. No boleto, em até 3 dias úteis após compensação.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-question">
+      E se eu não gostar?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Você tem 7 dias de garantia total. É só mandar um e-mail e devolvemos 100% do valor, sem burocracia, sem perguntas. O risco é zero.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta section">
+  <div class="container reveal">
+    <h2 class="final-cta-title">
+      Chega de perguntar<br>
+      <span style="background: linear-gradient(90deg, var(--neon), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">como o outro faz.</span>
+    </h2>
+    <p class="final-cta-sub">
+      Por R$37, uma vez só, você vira a pessoa do grupo<br>que todo mundo fica perguntando como fez.
+    </p>
+    <button class="btn-primary magnetic" data-checkout style="font-size: 18px; padding: 22px 48px;">
+      GARANTIR MEU ACESSO →
+    </button>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo">FUTURISTAS.AI</div>
+  <p class="footer-text">© 2025 Futuristas.AI · Todos os direitos reservados</p>
+  <div style="margin-top: 8px;">
+    <div class="visitor-counter">
+      <span class="visitor-dot"></span>
+      <span id="visitor-count">247</span> pessoas vendo agora
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  // Visitor counter simulation
+  const vc = document.getElementById('visitor-count');
+  let count = 247;
+  setInterval(() => {
+    count += Math.floor(Math.random() * 5) - 2;
+    count = Math.max(180, Math.min(350, count));
+    vc.textContent = count;
+  }, 4000);
+
+  // Magnetic button events for checkout
+  document.querySelectorAll('[data-checkout]').forEach(btn => {
+    btn.addEventListener('click', openCheckout);
+  });
+</script>
+
+</body>
+</html>
