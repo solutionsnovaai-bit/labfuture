@@ -1,5 +1,5 @@
 /* ============================================================
-   FUTURISTAS.AI — Prompts que Viralizam
+   LabFuture — Prompts que Viralizam
    main.js — All Interactions, Animations & Logic
    ============================================================ */
 
