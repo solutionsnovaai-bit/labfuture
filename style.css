@@ -1,9 +1,9 @@
 /* ============================================================
-   FUTURISTAS.AI — Prompts que Viralizam
+   LabFuture — Prompts que Viralizam
    style.css — Ultra-Premium Dark Cyber Theme
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ===== RESET & ROOT ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -131,7 +131,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
 #loader.hidden { opacity: 0; visibility: hidden; }
 
 .loader-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 22px;
   font-weight: 800;
   letter-spacing: 4px;
@@ -178,7 +178,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   gap: 0;
 }
 .marquee-track span {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 12px;
   font-weight: 700;
   color: #1a0f00;
@@ -206,7 +206,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   border-bottom: 1px solid var(--border);
 }
 .nav-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 17px;
   font-weight: 800;
   color: var(--neon);
@@ -215,7 +215,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   text-shadow: 0 0 16px rgba(0,200,255,0.5);
 }
 .nav-cta {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -269,7 +269,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
 }
 
 .hero-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(42px, 8vw, 88px);
   font-weight: 800;
   line-height: 1.05;
@@ -311,7 +311,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   gap: 12px;
   background: linear-gradient(135deg, var(--gold), var(--gold2));
   color: #0a0600;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.5px;
@@ -387,7 +387,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   display: block;
 }
 .section-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(30px, 5vw, 52px);
   font-weight: 800;
   line-height: 1.1;
@@ -423,7 +423,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   text-align: center;
 }
 .stat-number {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(32px, 5vw, 52px);
   font-weight: 800;
   line-height: 1;
@@ -557,7 +557,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
 .money-card:hover::before { opacity: 1; }
 .money-icon { font-size: 28px; margin-bottom: 16px; display: block; }
 .money-card h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--text);
@@ -625,7 +625,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   display: block;
 }
 .bento-card h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: var(--text);
@@ -633,7 +633,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
 }
 .bento-card p { font-size: 13px; color: var(--text-muted); font-weight: 300; }
 .bento-count {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 40px;
   font-weight: 800;
   background: linear-gradient(135deg, var(--gold), var(--gold2));
@@ -695,7 +695,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
 .value-item:hover { background: var(--surface); }
 .value-name { font-size: 15px; color: var(--text-muted); display: flex; align-items: center; gap: 10px; }
 .value-name .check { color: var(--green); font-size: 14px; }
-.value-price { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--neon); }
+.value-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; color: var(--neon); }
 .value-total {
   display: flex;
   justify-content: space-between;
@@ -705,9 +705,9 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   border: 1px solid var(--border-gold);
   margin-top: 2px;
 }
-.value-total-label { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--text); }
+.value-total-label { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--text); }
 .value-total-price {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   color: var(--gold);
   text-decoration: line-through;
@@ -760,7 +760,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   font-weight: 300;
 }
 .price-main {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(64px, 12vw, 96px);
   font-weight: 800;
   line-height: 1;
@@ -803,7 +803,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   width: 100%;
   background: linear-gradient(135deg, var(--gold), var(--gold2));
   color: #0a0600;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 17px;
   font-weight: 800;
   padding: 20px;
@@ -877,7 +877,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   background: transparent;
   border: none;
   color: var(--text);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
   text-align: left;
@@ -922,7 +922,7 @@ body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: r
   position: relative;
 }
 .final-cta-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(32px, 6vw, 60px);
   font-weight: 800;
   line-height: 1.15;
@@ -945,7 +945,7 @@ footer {
   z-index: 1;
 }
 .footer-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 14px;
   font-weight: 800;
   color: var(--neon);
@@ -1052,7 +1052,7 @@ footer {
 }
 .modal-close:hover { border-color: var(--neon); color: var(--neon); }
 .modal-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 24px;
   font-weight: 800;
   margin-bottom: 8px;
@@ -1060,7 +1060,7 @@ footer {
 }
 .modal-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
 .modal-price {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 48px;
   font-weight: 800;
   background: linear-gradient(135deg, var(--gold), var(--gold2));
@@ -1171,7 +1171,7 @@ footer {
 #success-screen.open { opacity: 1; visibility: visible; }
 .success-icon { font-size: 72px; margin-bottom: 24px; animation: bounce 0.6s cubic-bezier(0.34,1.56,0.64,1) both; }
 .success-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(28px, 5vw, 48px);
   font-weight: 800;
   margin-bottom: 16px;
